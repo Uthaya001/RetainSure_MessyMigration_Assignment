@@ -1,0 +1,98 @@
+Prompt for "Messy Migration" Assignment
+sql
+Copy
+Edit
+🧠 ASSIGNMENT CONTEXT:
+I’ve been given a coding task called **"Messy Migration"** as part of an SDE internship interview.
+
+I’m provided with a working but poorly written Flask-based user management API (everything inside one file: `app.py`). The code lacks structure, validation, and security.
+
+Your job is to help me **refactor this codebase into a clean, secure, production-ready application** — without changing the existing functionality.
+
+---
+
+✅ FUNCTIONALITY TO PRESERVE:
+These endpoints already exist and **must continue to work**:
+- GET /users → List users
+- POST /users → Create user
+- PUT /user/<id> → Update user
+- DELETE /user/<id> → Delete user
+- POST /login → User login
+- GET /search?name=xyz → Search users
+
+---
+
+🎯 OBJECTIVES (within 3 hours, but no rush for now):
+1. **Restructure the project** into this folder layout:
+messy-migration/
+├── app.py # Minimal Flask app bootstrap
+├── routes/
+│ └── user_routes.py # Route definitions
+├── services/
+│ └── user_service.py # Business logic
+├── models/
+│ └── db.py # DB connection and queries
+├── utils/
+│ └── validation.py # Input validators
+├── tests/
+│ └── test_users.py # Basic unit tests
+├── init_db.py
+├── requirements.txt
+├── README.md
+└── CHANGES.md
+
+markdown
+Copy
+Edit
+
+2. **Improve code organization**:
+   - Use meaningful function and variable names
+   - Separate concerns (routes, logic, data access, validation)
+
+3. **Enhance security**:
+   - Validate inputs for all endpoints
+   - Use `werkzeug.security` to hash passwords securely
+   - Sanitize user inputs to prevent injection
+
+4. **Improve error handling and HTTP response codes**:
+   - Use `try-except` blocks
+   - Return appropriate status codes (e.g., 400, 404, 500)
+
+5. **Write test cases using `pytest`**:
+   - At least for:
+     - `GET /users`
+     - `POST /users` (valid and invalid input)
+     - `GET /search?name=xyz`
+
+6. **Document everything**:
+   - In `README.md`: how to run the app
+   - In `CHANGES.md`: list the problems found, what was improved, and why
+
+---
+
+⭐ OPTIONAL EXTRAS (for bonus points):
+- Add a `Dockerfile` to run the app in a container
+- Use `.env` and `python-dotenv` for DB/configs
+- Replace raw SQL with SQLAlchemy ORM (only if time allows)
+- Add logging using Python's `logging` module
+
+---
+
+⛔ DO NOT:
+- Add new features or endpoints
+- Add a frontend or UI
+- Over-engineer or change the overall logic
+
+---
+
+📌 GOAL:
+Produce a clean, modular, secure, and testable Flask application that behaves exactly like the original app but with much better code quality. Keep `python app.py` working exactly as before.
+
+This will be submitted to HR and tech leads for review, so make it polished and professional.
+Let me know if you'd also like:
+
+A pre-written CHANGES.md template
+
+A sample test case for GET /users
+
+Or a GitHub README template
